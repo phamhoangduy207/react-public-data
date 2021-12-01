@@ -5,14 +5,14 @@ class Time extends React.Component {
   constructor(props) {
     super(props);
     this.state = { date: new Date(), color: "red" };
-    this.changeColor = this.changeColor.bind(this)
+    this.changeColor = this.changeColor.bind(this);
   }
 
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
     document.title = `${this.state.color}`;
   }
-  componentDidUpdate(){
+  componentDidUpdate() {
     document.title = `${this.state.color}`;
   }
   componentWillUnmount() {
@@ -21,20 +21,20 @@ class Time extends React.Component {
 
   tick() {
     this.setState({
-      date: new Date()
+      date: new Date(),
     });
   }
-  changeColor(){
-    const newColor = this.state.color === "red" ? "blue" : "red"
+  changeColor() {
+    const newColor = this.state.color === "red" ? "blue" : "red";
     this.setState({
-      color: newColor
-    })
+      color: newColor,
+    });
   }
 
   render() {
     return (
       <div className="clock">
-        <h2 onClick = {this.changeColor} className="time-red" id="time" style={{ color: this.state.color }}>
+        <h2 onClick={this.changeColor} style={{ color: this.state.color }}>
           {this.state.date.toLocaleTimeString()}
         </h2>
       </div>
