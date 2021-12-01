@@ -1,0 +1,11 @@
+.clock {
+  width: fit-content;
+  display: flex;
+  justify-content: left;
+}
+.clock h2 {
+  cursor: pointer;
+}
+.clock h2:hover {
+  background-color: burlywood;
+}
