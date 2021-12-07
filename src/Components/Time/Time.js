@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ThemeConsumer } from "../../Contexts/ThemeContext";
 import "./Time.css";
 
 function Time() {
@@ -16,7 +17,7 @@ function Time() {
   function tick() {
     setClock({
       date: new Date(),
-      color: clock.color
+      color: clock.color,
     });
   }
 
@@ -29,11 +30,17 @@ function Time() {
   }
 
   return (
-    <div className="clock">
-      <h2 onClick={changeColor} style={{ color: clock.color }}>
-        {clock.date.toLocaleTimeString()}
-      </h2>
-    </div>
+    <ThemeConsumer>
+      {(props) => {
+        return (
+          <div className="clock">
+            <h2 onClick={changeColor} style={{ color: clock.color }}>
+              {clock.date.toLocaleTimeString()}
+            </h2>
+          </div>
+        );
+      }}
+    </ThemeConsumer>
   );
 }
 
