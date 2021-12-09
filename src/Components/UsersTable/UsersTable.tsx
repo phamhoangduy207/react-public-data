@@ -14,7 +14,7 @@ const columns = [
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 300,
-    valueGetter: (params) =>
+    valueGetter: (params: any) =>
       `${params.getValue(params.id, "name") || ""} 
       ${params.getValue(params.id, "phone") || ""}`,
   },
@@ -47,7 +47,7 @@ export default function Users() {
     getData();
   }, []);
 
-  function handleChange(e) {
+  function handleChange(e: any) {
     setData({
       items: data.items,
       pageSize: parseInt(e.target.value),
@@ -67,7 +67,7 @@ export default function Users() {
     <ThemeConsumer>
       {(props) => {
         return (
-          <div style={{ background: props.background, color: props.color }}>
+          <div style={{ background: props!.background, color: props!.color }}>
             <select onChange={(event) => handleChange(event)}>
               <option value="5">5</option>
               <option value="6">6</option>
