@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Time from "./Components/Time/Time";
 import Users from "./Components/UsersTable/UsersTable";
 import { ThemeProvider } from "./Contexts/ThemeContext";
+import ITheme from "./Interfaces/ITheme";
 
 function App() {
-  const [Theme, setTheme] = useState({
+  const [Theme, setTheme] = useState<ITheme>({
     background: "#9ac2ed",
     color: "black",
   });
